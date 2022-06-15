@@ -1,0 +1,4 @@
+{
+    "serverPort": 8000,
+    "dbUrl": "mongodb+srv://semyon:stetsenko123@todos.3x1upok.mongodb.net/?retryWrites=true&w=majority"
+}
