@@ -20,21 +20,11 @@ class TodoController {
         }
     }
 
-    async getOne(req, res) {
-        try {
-            const { id } = req.params
-            const todo = await TodoItem.findById(id)
-            return res.json(todo)
-        } catch (e) {
-            res.status(500).json(e)
-        }
-    }
-
     async update(req, res) {
         try {
-            const todo = req.body
-            const updateTodo = await TodoItem.findByIdAndUpdate(todo._id, todo, { new: true })
-            return res.json(updateTodo)
+            const todo = req.body;
+            const updateTodo = await TodoItem.findByIdAndUpdate(todo._id, todo, { new: true });
+            return res.json(updateTodo);
         } catch (e) {
             res.status(500).json(e)
         }
@@ -50,6 +40,14 @@ class TodoController {
         }
     }
 
+    async deleteAll(req, res) {
+        try {
+            const todo = await TodoItem.deleteMany({})
+            return res.json(todo)
+        } catch (e) {
+            res.status(500).json(e)
+        }
+    }
 
 }
 
